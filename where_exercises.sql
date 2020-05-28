@@ -1,5 +1,9 @@
 use employees;
 
+SELECT *
+FROM employees
+WHERE first_name IN ('Irena', 'Vidya', 'Maya');
+
 SELECT first_name
     FROM employees
     WHERE gender = 'M'
