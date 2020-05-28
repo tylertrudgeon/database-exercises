@@ -1,4 +1,3 @@
-USE titles;
 USE employees;
 
 SELECT DISTINCT title
