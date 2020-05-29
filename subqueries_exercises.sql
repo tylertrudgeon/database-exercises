@@ -8,7 +8,7 @@ WHERE hire_date IN (
     WHERE emp_no = 101010
     );
 
-SELECT *
+SELECT COUNT(*) AS 'Total Titles', COUNT(DISTINCT title) AS 'Unique Titles'
 FROM employees e
 JOIN titles t
     on e.emp_no = t.emp_no
