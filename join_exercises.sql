@@ -47,7 +47,9 @@ JOIN departments d
     ON de.dept_no = d.dept_no
 JOIN titles t
     ON e.emp_no = t.emp_no
-WHERE dept_name = 'Customer Service'
+WHERE d.dept_name = 'Customer Service'
+    AND t.to_date > curdate()
+    AND de.to_date > curdate()
 GROUP BY title;
 
 SELECT DISTINCT CONCAT(dept_name) AS Department_Name,
