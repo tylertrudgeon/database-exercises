@@ -28,3 +28,14 @@ JOIN departments AS d
     ON dm.dept_no = d.dept_no
 WHERE to_date = '9999-01-01'
 ORDER BY dept_name;
+
+SELECT CONCAT(dept_name) AS Department_Name, CONCAT_WS(' ',first_name, last_name) AS Department_Manager
+FROM employees AS e
+         JOIN dept_manager AS dm
+              ON e.emp_no = dm.emp_no
+         JOIN departments AS d
+              ON dm.dept_no = d.dept_no
+WHERE to_date = '9999-01-01'
+    AND e.gender = 'F'
+ORDER BY dept_name;
+
