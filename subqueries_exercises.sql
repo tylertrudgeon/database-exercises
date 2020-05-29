@@ -27,4 +27,18 @@ WHERE gender IN (
     FROM dept_manager
     WHERE gender = 'F'
     AND dm.to_date > curdate()
+    );
+
+SELECT dept_name
+FROM employees
+JOIN dept_manager dm
+    on employees.emp_no = dm.emp_no
+JOIN departments d
+    on dm.dept_no = d.dept_no
+WHERE gender IN (
+    SELECT gender
+    FROM dept_manager
+    WHERE gender = 'F'
+    and dm.to_date > curdate()
     )
+ORDER BY dept_name;
