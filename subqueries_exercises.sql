@@ -42,3 +42,13 @@ WHERE gender IN (
     and dm.to_date > curdate()
     )
 ORDER BY dept_name;
+
+SELECT first_name, last_name
+FROM employees
+JOIN salaries s
+    on employees.emp_no = s.emp_no
+WHERE salary IN (
+    SELECT MAX(salary)
+    FROM salaries
+    WHERE to_date > curdate()
+    )
