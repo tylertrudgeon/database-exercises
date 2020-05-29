@@ -50,4 +50,14 @@ JOIN titles t
 WHERE dept_name = 'Customer Service'
 GROUP BY title;
 
-describe dept_emp;
+SELECT DISTINCT CONCAT(dept_name) AS Department_Name,
+    CONCAT_WS(' ',first_name, last_name) AS Department_Manager,
+    CONCAT(s.emp_no) AS Salary
+FROM employees AS e
+JOIN dept_manager AS dm
+    ON e.emp_no = dm.emp_no
+JOIN departments AS d
+    ON dm.dept_no = d.dept_no
+JOIN salaries s
+    ON e.emp_no = s.emp_no
+WHERE dm.to_date = '9999-01-01';
